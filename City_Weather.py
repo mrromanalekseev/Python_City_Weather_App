@@ -1,3 +1,4 @@
+import flex as flex
 import pyowm
 from pyowm.utils.config import get_default_config
 import kivy
@@ -10,7 +11,7 @@ from kivy.app import App
 from kivy.uix.button import Button
 
 
-class TestApp(App):
+class City_WeatherApp(App):
     textinput1 = None
     button1 = None
     button2 = None
@@ -47,7 +48,7 @@ class TestApp(App):
         owm = pyowm.OWM('c027c4867327d7960036032d0dd23c8f', config_dict)
 
         mgr = owm.weather_manager()
-        message_text = 'Архангельск'
+        message_text = 'Санкт-Петербург'
         observation = mgr.weather_at_place(message_text)
         w = observation.weather
 
@@ -66,7 +67,7 @@ class TestApp(App):
         self.button3 = Button(text=weather_info3, font_size='20')
         self.button4 = Button(text=weather_info4, font_size='20')
         self.button5 = Button(text=weather_info5, font_size='20')
-        self.button6 = Button(text='**** SHOW ME ****', font_size='25')
+        self.button6 = Button(text='*** show me city weather please! ***', font_size='25')
         self.button6.bind(on_press=self.on_enter)
 
         layout.add_widget(self.button1)
@@ -81,4 +82,4 @@ class TestApp(App):
 
 
 if __name__ == '__main__':
-    TestApp().run()
+    City_WeatherApp().run()
